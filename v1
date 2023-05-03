@@ -1,0 +1,44 @@
+getgenv().Keybinds = "c"
+getgenv().macrospeed = 0.78
+getgenv().Type = "mouse" -- normal or mouse
+
+
+local Player = game:GetService("Players").LocalPlayer
+local Mouse = Player:GetMouse()
+local SpeedGlitch = false
+Mouse.KeyDown:Connect(function(Key)
+    if Key == (Keybinds) and Type == "normal" then
+    SpeedGlitch = not SpeedGlitch
+    if SpeedGlitch == true then
+    repeat task.wait(macrospeed / 100)
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game)
+    task.wait(macrospeed / 100)
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game)
+    task.wait(macrospeed / 100)
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "I", false, game)
+    task.wait(macrospeed / 100)
+    game:GetService("VirtualInputManager"):SendKeyEvent(true, "O", false, game)
+    task.wait(macrospeed / 100)
+    until SpeedGlitch == false
+end
+end
+end)
+
+
+    Mouse.KeyDown:Connect(function(Key)
+    if Key == (Keybinds) and Type == "mouse" then
+    SpeedGlitch = not SpeedGlitch
+    if SpeedGlitch == true then
+    repeat task.wait(macrospeed / 100)
+    game:GetService("VirtualInputManager"):SendMouseWheelEvent("0", "0", true, game)
+    task.wait(macrospeed / 100)
+    game:GetService("VirtualInputManager"):SendMouseWheelEvent("0", "0", false, game)
+    task.wait(macrospeed / 100)
+    game:GetService("VirtualInputManager"):SendMouseWheelEvent("0", "0", true, game)
+    task.wait(macrospeed / 100)
+    game:GetService("VirtualInputManager"):SendMouseWheelEvent("0", "0", false, game)
+    task.wait(macrospeed / 100)
+    until SpeedGlitch == false
+end
+end
+end)
